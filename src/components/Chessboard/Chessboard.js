@@ -13,6 +13,10 @@ const Chessboard = ({
     createBoard();
   }, []);
 
+  useEffect(() => {
+    createBoard();
+  }, [knight.possibleMoves]);
+
   const createBoard = () => {
     tempBoard = [];
     for (let i = rows.length - 1; i >= 0; i--) {
@@ -37,7 +41,7 @@ const Chessboard = ({
 
         tempBoard.push([
           <div
-            // onClick={tileClickHandler}
+            onClick={tileClickHandler}
             className={classList}
             key={columns[j] + rows[i]}
           >
@@ -48,6 +52,17 @@ const Chessboard = ({
     }
     setBoard(tempBoard);
   };
+
+  const tileClickHandler = (e) => {
+    if (e.target.classList.contains("possible-move")) {
+      console.log(e.target.innerText);
+      setKnight({
+        ...knight,
+        currentPosition: [e.target.innerText[0], e.target.innerText[1]],
+      });
+    }
+  };
+
   return <div className="chess-board">{board?.map((tile, index) => tile)}</div>;
 };
 
