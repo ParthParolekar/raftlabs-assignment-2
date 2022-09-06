@@ -71,6 +71,12 @@ function App() {
 
   return (
     <div className="App">
+      <h1>Chess Knight</h1>
+      <p>
+        The chess board shows the possible spaces the knight can take with green
+        boxes.
+      </p>
+      <p> Click on one of the green boxes to move the knight.</p>
       <Chessboard
         columns={columns}
         rows={rows}

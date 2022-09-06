@@ -4,12 +4,14 @@
   display: grid;
   grid-template-columns: repeat(8, 50px);
   grid-template-rows: repeat(8, 50px);
+  margin: 50px auto;
+  border: 1px solid gray;
 }
 
 .tile {
   width: 50px;
   height: 50px;
-  color: purple;
+  color: transparent;
   cursor: pointer;
 }
 
@@ -22,9 +24,12 @@
 }
 
 .knight {
-  background-color: green;
+  /* background-color: green; */
+  z-index: 1;
+  width: 50px;
+  height: 50px;
 }
 
 .possible-move {
-  background-color: red;
+  background-color: green;
 }

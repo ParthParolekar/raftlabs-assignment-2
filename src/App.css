@@ -1,4 +1,5 @@
 @import "./components/Chessboard/chessboard.css";
 .App {
   text-align: center;
+  width: 100vw;
 }

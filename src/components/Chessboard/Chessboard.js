@@ -11,10 +11,6 @@ const Chessboard = ({
 }) => {
   useEffect(() => {
     createBoard();
-  }, []);
-
-  useEffect(() => {
-    createBoard();
   }, [knight.possibleMoves]);
 
   const createBoard = () => {
@@ -29,9 +25,9 @@ const Chessboard = ({
           classList = classList + " black-tile";
         }
 
-        if (knight.currentPosition.join("") === columns[j] + rows[i]) {
-          classList = classList + " knight";
-        }
+        // if (knight.currentPosition.join("") === columns[j] + rows[i]) {
+        //   classList = classList + " knight";
+        // }
 
         knight.possibleMoves.map((move) =>
           move.join("") === columns[j] + rows[i]
@@ -45,6 +41,13 @@ const Chessboard = ({
             className={classList}
             key={columns[j] + rows[i]}
           >
+            {knight.currentPosition.join("") === columns[j] + rows[i] && (
+              <img
+                className="knight"
+                src="https://freesvg.org/img/portablejim-Chess-tile-Knight-2.png"
+                alt="Banner"
+              />
+            )}
             {columns[j] + rows[i]}
           </div>,
         ]);
